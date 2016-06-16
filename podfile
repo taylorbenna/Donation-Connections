@@ -1,0 +1,5 @@
+use_frameworks!
+
+target 'Donation Connections'
+pod 'Parse'
+
