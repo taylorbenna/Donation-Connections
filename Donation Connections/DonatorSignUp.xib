@@ -20,7 +20,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jsR-Vd-rfA">
+                <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jsR-Vd-rfA">
                     <rect key="frame" x="250" y="8" width="100" height="100"/>
                     <color key="backgroundColor" red="0.7430889423" green="0.7430889423" blue="0.7430889423" alpha="1" colorSpace="calibratedRGB"/>
                     <gestureRecognizers/>

@@ -14,7 +14,7 @@ class Donator: PFObject, PFSubclassing{
     @NSManaged var firstName:String
     @NSManaged var lastName:String
     @NSManaged var username:String
-    @NSManaged var photo:NSData
+    @NSManaged var photo:PFFile
     
     
     override class func initialize() {

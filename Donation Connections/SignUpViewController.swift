@@ -37,30 +37,25 @@ class SignUpViewController: UIViewController, SignUpProtocol {
         // Dispose of any resources that can be recreated.
     }
     
-    func saveUser() -> Bool{
+    func saveUser(completion:(success: Bool) -> ()){
         
         let user = PFUser()
         user.username = usernameTextField.text
         user.password = passwordTextField.text
         currentUser = user
         
-        var userBool:Bool?
-        
         user.signUpInBackgroundWithBlock {
             (succeeded: Bool, error: NSError?) -> Void in
             if let error = error {
                 let errorString = error.userInfo["error"] as? String
                 self.showAlert("Something went wrong!", descText: errorString!)
-                userBool = false
-            }
-            if succeeded {
-                userBool = true
-            } else {
-                userBool = false
+                completion(success: false)
+            }else {
+                
+                completion(success: true)
+                
             }
         }
-        
-        return userBool!
     }
     
     // MARK: Validation
@@ -96,38 +91,41 @@ class SignUpViewController: UIViewController, SignUpProtocol {
     
     @IBAction func nextButtonPressed(sender: AnyObject) {
         if validation() {
-            if saveUser() {
-                if userTypeSegment.selectedSegmentIndex == 0 {
-                    donView = DonatorView.init(frame: CGRectZero)
-                    donView.delegate = self
-                    donView.user = currentUser
-                    
-                    view.addSubview(donView)
-                    donView.translatesAutoresizingMaskIntoConstraints = false
-                    
-                    donView.topAnchor.constraintEqualToAnchor(navBar.bottomAnchor).active = true
-                    donView.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor).active = true
-                    donView.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor).active = true
-                    donView.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor).active = true
-                    
-                    UIView.transitionFromView(baseView, toView: donView, duration: 1.0, options: .TransitionFlipFromLeft, completion: nil)
-                } else {
-                    charView = CharityView.init(frame: CGRectZero)
-                    
-                    charView.delegate = self
-                    charView.user = currentUser
-                    
-                    view.addSubview(charView)
-                    charView.translatesAutoresizingMaskIntoConstraints = false
-                    
-                    charView.topAnchor.constraintEqualToAnchor(navBar.bottomAnchor).active = true
-                    charView.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor).active = true
-                    charView.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor).active = true
-                    charView.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor).active = true
-                    
-                    UIView.transitionFromView(baseView, toView: charView, duration: 1.0, options: .TransitionFlipFromLeft, completion: nil)
+            saveUser({ (success) in
+                if success {
+                    if self.userTypeSegment.selectedSegmentIndex == 0 {
+                        self.donView = DonatorView.init(frame: CGRectZero)
+                        self.donView.delegate = self
+                        self.donView.user = self.currentUser
+                        
+                        self.view.addSubview(self.donView)
+                        self.donView.translatesAutoresizingMaskIntoConstraints = false
+                        
+                        self.donView.topAnchor.constraintEqualToAnchor(self.navBar.bottomAnchor).active = true
+                        self.donView.bottomAnchor.constraintEqualToAnchor(self.view.bottomAnchor).active = true
+                        self.donView.leadingAnchor.constraintEqualToAnchor(self.view.leadingAnchor).active = true
+                        self.donView.trailingAnchor.constraintEqualToAnchor(self.view.trailingAnchor).active = true
+                        
+                        UIView.transitionFromView(self.baseView, toView: self.donView, duration: 1.0, options: .TransitionFlipFromLeft, completion: nil)
+                    } else {
+                        self.charView = CharityView.init(frame: CGRectZero)
+                        
+                        self.charView.delegate = self
+                        self.charView.user = self.currentUser
+                        
+                        self.view.addSubview(self.charView)
+                        self.charView.translatesAutoresizingMaskIntoConstraints = false
+                        
+                        self.charView.topAnchor.constraintEqualToAnchor(self.navBar.bottomAnchor).active = true
+                        self.charView.bottomAnchor.constraintEqualToAnchor(self.view.bottomAnchor).active = true
+                        self.charView.leadingAnchor.constraintEqualToAnchor(self.view.leadingAnchor).active = true
+                        self.charView.trailingAnchor.constraintEqualToAnchor(self.view.trailingAnchor).active = true
+                        
+                        UIView.transitionFromView(self.baseView, toView: self.charView, duration: 1.0, options: .TransitionFlipFromLeft, completion: nil)
+                    }
+
                 }
-            }
+            })
         }
     }
     
@@ -164,5 +162,12 @@ class SignUpViewController: UIViewController, SignUpProtocol {
     func sendInfoForAlert(title: String, desc: String) {
         showAlert(title, descText: desc)
     }
+    
+    func didFinishSignUp(){
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setObject(currentUser?.username, forKey: "user")
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+
 
 }

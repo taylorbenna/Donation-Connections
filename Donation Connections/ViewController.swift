@@ -62,8 +62,12 @@ class ViewController: UIViewController {
             PFUser.logInWithUsernameInBackground(userNameTextField.text!, password: passwordTextField.text!) {
                 (user: PFUser?, error: NSError?) -> Void in
                 if user != nil {
-                    self.showAlert("LOG IN", descText: "LOG IN SUCCESSFUL!")
                     self.currentUser = user
+                    
+                    let defaults = NSUserDefaults.standardUserDefaults()
+                    defaults.setObject(self.currentUser.username, forKey: "user")
+                    
+                    self.dismissViewControllerAnimated(true, completion: nil)
                 } else {
                     print(error)
                 }

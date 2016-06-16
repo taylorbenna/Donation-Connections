@@ -13,4 +13,5 @@ protocol SignUpProtocol {
     func xibCancelButton()
     func imagePickerPresent(imagePicker: UIImagePickerController)
     func sendInfoForAlert(title: String, desc: String)
+    func didFinishSignUp()
 }

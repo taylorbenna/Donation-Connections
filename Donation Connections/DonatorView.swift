@@ -90,11 +90,12 @@ class DonatorView: UIView, UIImagePickerControllerDelegate, UINavigationControll
             donator.firstName = firstNameTextField.text!
             donator.lastName = lastNameTextField.text!
             donator.username = user!.username!
-            donator.photo = UIImagePNGRepresentation(imageView.image!)!
+            donator.photo = PFFile(data: UIImageJPEGRepresentation(imageView.image!, 0.5)!)!
+
             donator.saveInBackgroundWithBlock {
                 (success: Bool, error: NSError?) -> Void in
                 if (success) {
-                    // The object has been saved.
+                    self.delegate!.didFinishSignUp()
                 } else {
                     self.delegate!.sendInfoForAlert("Trouble Saving", desc: "Something seems to have gone wrong. Try it again!")
                 }

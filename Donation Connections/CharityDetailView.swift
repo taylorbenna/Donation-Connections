@@ -8,28 +8,49 @@
 
 import UIKit
 
-class CharityDetailView: UIViewController {
+class CharityDetailView: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
+    var currentCharity:Charity?
+    
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var charityNameLabel: UILabel!
+    @IBOutlet weak var charityBioTextView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        currentCharity!.charityImage.getDataInBackgroundWithBlock({ (data, error) in
+            guard let data = data else { return }
+            self.imageView.image = UIImage(data: data)
+        })
+        
+        charityNameLabel.text = currentCharity!.charityName
+        charityBioTextView.text = currentCharity!.charityBio
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func backButtonPressed(sender: UIButton) {
+        dismissViewControllerAnimated(true, completion: nil)
     }
-    */
-
+    
+    
+    
+    //MARK: Collection View
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return (currentCharity?.charityItems.count)!
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("itemCollectionCell", forIndexPath: indexPath) as! ItemCollectionViewCell
+        
+        cell.itemLabel.text = currentCharity?.charityItems[indexPath.row]
+        
+        return cell
+    }
 }

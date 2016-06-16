@@ -12,11 +12,26 @@ import Parse
 class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var charities:[Charity] = []
+    var currentCharity:Charity?
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        getCharities()
+        
+    
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if (defaults.objectForKey("user") == nil) {
+            performSegueWithIdentifier("showSignUp", sender: self)
+        }
+    }
+    
+    func getCharities() {
         let query = Charity.query()!
         query.findObjectsInBackgroundWithBlock { [weak self] (objects, error) in
             
@@ -25,12 +40,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 self?.tableView.reloadData()
             }
         }
-        
-        
-        
-
-        
-    
     }
 
     override func didReceiveMemoryWarning() {
@@ -53,10 +62,28 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.charityNameLabel.text = charity.charityName
         let items = charity.charityItems.joinWithSeparator(", ")
         cell.itemsLabel.text = items
-        cell.charityImageView.image = UIImage(data:charity.charityImage, scale:1.0)
+        
+        charity.charityImage.getDataInBackgroundWithBlock({ (data, error) in
+            guard let data = data else { return }
+            cell.charityImageView.image = UIImage(data: data)
+        })
         
         
         return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        currentCharity = charities[indexPath.row]
+        performSegueWithIdentifier("detailSegue", sender: self)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "detailSegue" {
+            let dViewController = segue.destinationViewController as! CharityDetailView
+            dViewController.currentCharity = currentCharity
+        } else if segue.identifier == "showSignUp" {
+            
+        }
     }
 
 }

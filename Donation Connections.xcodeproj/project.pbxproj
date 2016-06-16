@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		3433AC0F1D0F26300060E9F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3433AC0E1D0F26300060E9F2 /* AppDelegate.swift */; };
 		3433AC111D0F26300060E9F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3433AC101D0F26300060E9F2 /* ViewController.swift */; };
-		3433AC141D0F26300060E9F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3433AC121D0F26300060E9F2 /* Main.storyboard */; };
 		3433AC161D0F26300060E9F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3433AC151D0F26300060E9F2 /* Assets.xcassets */; };
 		3433AC191D0F26300060E9F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3433AC171D0F26300060E9F2 /* LaunchScreen.storyboard */; };
 		3433AC241D0F26310060E9F2 /* Donation_ConnectionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3433AC231D0F26310060E9F2 /* Donation_ConnectionsTests.swift */; };
@@ -29,6 +28,9 @@
 		346185B91D120F2A00375CF0 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346185B81D120F2A00375CF0 /* SearchViewController.swift */; };
 		346185BB1D12107800375CF0 /* CharityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346185BA1D12107800375CF0 /* CharityTableViewCell.swift */; };
 		34A77FE51D13255A00041811 /* ParseKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A77FE41D13255A00041811 /* ParseKey.swift */; };
+		34A77FE71D13360D00041811 /* ItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A77FE61D13360D00041811 /* ItemCollectionViewCell.swift */; };
+		34A77FE91D134BB400041811 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A77FE81D134BB400041811 /* ProfileViewController.swift */; };
+		34A77FEB1D135E4C00041811 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34A77FEA1D135E4C00041811 /* Main.storyboard */; };
 		34F64A701D10C936001FA309 /* DonatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F64A6F1D10C936001FA309 /* DonatorView.swift */; };
 		34F64A721D10C96D001FA309 /* DonatorSignUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34F64A711D10C96D001FA309 /* DonatorSignUp.xib */; };
 		AF3470AECE619E2CA4996EB0 /* Pods_Donation_Connections.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3721F5CE2DD51ACFC4E6236B /* Pods_Donation_Connections.framework */; };
@@ -48,7 +50,6 @@
 		3433AC0B1D0F26300060E9F2 /* Donation Connections.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Donation Connections.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3433AC0E1D0F26300060E9F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3433AC101D0F26300060E9F2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		3433AC131D0F26300060E9F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3433AC151D0F26300060E9F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3433AC181D0F26300060E9F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3433AC1A1D0F26300060E9F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -71,6 +72,9 @@
 		346185B81D120F2A00375CF0 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		346185BA1D12107800375CF0 /* CharityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharityTableViewCell.swift; sourceTree = "<group>"; };
 		34A77FE41D13255A00041811 /* ParseKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseKey.swift; sourceTree = "<group>"; };
+		34A77FE61D13360D00041811 /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
+		34A77FE81D134BB400041811 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		34A77FEA1D135E4C00041811 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		34F64A6F1D10C936001FA309 /* DonatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DonatorView.swift; sourceTree = "<group>"; };
 		34F64A711D10C96D001FA309 /* DonatorSignUp.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DonatorSignUp.xib; sourceTree = "<group>"; };
 		3721F5CE2DD51ACFC4E6236B /* Pods_Donation_Connections.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Donation_Connections.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -139,6 +143,7 @@
 				3433AC151D0F26300060E9F2 /* Assets.xcassets */,
 				346185BA1D12107800375CF0 /* CharityTableViewCell.swift */,
 				346185B01D11D11800375CF0 /* ItemTableViewCell.swift */,
+				34A77FE61D13360D00041811 /* ItemCollectionViewCell.swift */,
 				3433AC1A1D0F26300060E9F2 /* Info.plist */,
 			);
 			path = "Donation Connections";
@@ -169,6 +174,7 @@
 				3433AC361D0F6AA10060E9F2 /* CharityDetailView.swift */,
 				3433AC341D0F66080060E9F2 /* SignUpViewController.swift */,
 				346185B81D120F2A00375CF0 /* SearchViewController.swift */,
+				34A77FE81D134BB400041811 /* ProfileViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -176,7 +182,7 @@
 		34F64A741D10CA52001FA309 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				3433AC121D0F26300060E9F2 /* Main.storyboard */,
+				34A77FEA1D135E4C00041811 /* Main.storyboard */,
 				3433AC171D0F26300060E9F2 /* LaunchScreen.storyboard */,
 				3433AC301D0F42CD0060E9F2 /* CharitySignUp.xib */,
 				34F64A711D10C96D001FA309 /* DonatorSignUp.xib */,
@@ -291,8 +297,8 @@
 				346185B31D11DFA200375CF0 /* ItemCellXib.xib in Resources */,
 				34F64A721D10C96D001FA309 /* DonatorSignUp.xib in Resources */,
 				3433AC191D0F26300060E9F2 /* LaunchScreen.storyboard in Resources */,
+				34A77FEB1D135E4C00041811 /* Main.storyboard in Resources */,
 				3433AC161D0F26300060E9F2 /* Assets.xcassets in Resources */,
-				3433AC141D0F26300060E9F2 /* Main.storyboard in Resources */,
 				3433AC311D0F42CD0060E9F2 /* CharitySignUp.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -371,7 +377,9 @@
 				34A77FE51D13255A00041811 /* ParseKey.swift in Sources */,
 				34F64A701D10C936001FA309 /* DonatorView.swift in Sources */,
 				3433AC371D0F6AA10060E9F2 /* CharityDetailView.swift in Sources */,
+				34A77FE91D134BB400041811 /* ProfileViewController.swift in Sources */,
 				346185B71D11F25300375CF0 /* Donator.swift in Sources */,
+				34A77FE71D13360D00041811 /* ItemCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,14 +402,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		3433AC121D0F26300060E9F2 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3433AC131D0F26300060E9F2 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		3433AC171D0F26300060E9F2 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

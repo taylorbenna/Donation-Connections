@@ -87,13 +87,13 @@ class CharityView: UIView, UIImagePickerControllerDelegate, UINavigationControll
             charity.charityName = nameTextField.text!
             charity.charityBio = bioTextView.text!
             charity.charityItems = items
-            charity.charityImage = UIImagePNGRepresentation(imageView.image!)!
+            charity.charityImage = PFFile(data: UIImageJPEGRepresentation(imageView.image!, 0.5)!)!
             charity.charityOwner = user!.username!
             
             charity.saveInBackgroundWithBlock {
                 (success: Bool, error: NSError?) -> Void in
                 if (success) {
-                    // The object has been saved.
+                    self.delegate!.didFinishSignUp()
                 } else {
                     self.delegate!.sendInfoForAlert("Trouble Saving", desc: "Something seems to have gone wrong. Try it again!")
                 }

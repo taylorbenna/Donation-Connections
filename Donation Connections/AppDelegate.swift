@@ -23,6 +23,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Parse.setApplicationId(ID.getAppID(), clientKey: ID.getClientID())
         
+        
+        
+        UITabBar.appearance().tintColor = UIColor.redColor()
+        
         return true
     }
 

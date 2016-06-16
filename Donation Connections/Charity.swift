@@ -15,7 +15,7 @@ class Charity: PFObject, PFSubclassing {
     @NSManaged var charityOwner:String
     @NSManaged var charityBio:String
     @NSManaged var charityItems:[String]
-    @NSManaged var charityImage:NSData
+    @NSManaged var charityImage:PFFile
     
     override class func initialize() {
         struct Static {
