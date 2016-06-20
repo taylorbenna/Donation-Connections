@@ -21,12 +21,16 @@ class ViewController: UIViewController {
     
 
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if (defaults.objectForKey("user") != nil) {
+            dismissViewControllerAnimated(true, completion: nil)
+        }
+
+    }
+
     func checkUser() -> Bool{
         if userNameTextField.text == "" {
             showAlert("Missing Username", descText: "Please enter a username to log in.")
@@ -66,7 +70,6 @@ class ViewController: UIViewController {
                     
                     let defaults = NSUserDefaults.standardUserDefaults()
                     defaults.setObject(self.currentUser.username, forKey: "user")
-                    
                     self.dismissViewControllerAnimated(true, completion: nil)
                 } else {
                     print(error)

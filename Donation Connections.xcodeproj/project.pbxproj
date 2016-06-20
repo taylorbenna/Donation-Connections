@@ -27,6 +27,12 @@
 		346185B71D11F25300375CF0 /* Donator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346185B61D11F25300375CF0 /* Donator.swift */; };
 		346185B91D120F2A00375CF0 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346185B81D120F2A00375CF0 /* SearchViewController.swift */; };
 		346185BB1D12107800375CF0 /* CharityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346185BA1D12107800375CF0 /* CharityTableViewCell.swift */; };
+		3474E0901D1492E900C0C22B /* CharityProfile.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3474E08F1D1492E900C0C22B /* CharityProfile.xib */; };
+		3474E0921D14944800C0C22B /* CharityProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3474E0911D14944800C0C22B /* CharityProfileView.swift */; };
+		3474E0941D14A2CC00C0C22B /* DonerProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3474E0931D14A2CC00C0C22B /* DonerProfileView.swift */; };
+		3474E0961D14A2DD00C0C22B /* DonerProfile.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3474E0951D14A2DD00C0C22B /* DonerProfile.xib */; };
+		3474E0981D186E8B00C0C22B /* EditCharityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3474E0971D186E8B00C0C22B /* EditCharityViewController.swift */; };
+		3474E09A1D186E9F00C0C22B /* EditDonerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3474E0991D186E9F00C0C22B /* EditDonerViewController.swift */; };
 		34A77FE51D13255A00041811 /* ParseKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A77FE41D13255A00041811 /* ParseKey.swift */; };
 		34A77FE71D13360D00041811 /* ItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A77FE61D13360D00041811 /* ItemCollectionViewCell.swift */; };
 		34A77FE91D134BB400041811 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A77FE81D134BB400041811 /* ProfileViewController.swift */; };
@@ -71,6 +77,12 @@
 		346185B61D11F25300375CF0 /* Donator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Donator.swift; sourceTree = "<group>"; };
 		346185B81D120F2A00375CF0 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		346185BA1D12107800375CF0 /* CharityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharityTableViewCell.swift; sourceTree = "<group>"; };
+		3474E08F1D1492E900C0C22B /* CharityProfile.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CharityProfile.xib; sourceTree = "<group>"; };
+		3474E0911D14944800C0C22B /* CharityProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharityProfileView.swift; sourceTree = "<group>"; };
+		3474E0931D14A2CC00C0C22B /* DonerProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DonerProfileView.swift; sourceTree = "<group>"; };
+		3474E0951D14A2DD00C0C22B /* DonerProfile.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DonerProfile.xib; sourceTree = "<group>"; };
+		3474E0971D186E8B00C0C22B /* EditCharityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditCharityViewController.swift; sourceTree = "<group>"; };
+		3474E0991D186E9F00C0C22B /* EditDonerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditDonerViewController.swift; sourceTree = "<group>"; };
 		34A77FE41D13255A00041811 /* ParseKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseKey.swift; sourceTree = "<group>"; };
 		34A77FE61D13360D00041811 /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		34A77FE81D134BB400041811 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -162,7 +174,9 @@
 			isa = PBXGroup;
 			children = (
 				34F64A6F1D10C936001FA309 /* DonatorView.swift */,
+				3474E0931D14A2CC00C0C22B /* DonerProfileView.swift */,
 				3433AC321D0F65140060E9F2 /* CharityView.swift */,
+				3474E0911D14944800C0C22B /* CharityProfileView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -175,6 +189,8 @@
 				3433AC341D0F66080060E9F2 /* SignUpViewController.swift */,
 				346185B81D120F2A00375CF0 /* SearchViewController.swift */,
 				34A77FE81D134BB400041811 /* ProfileViewController.swift */,
+				3474E0971D186E8B00C0C22B /* EditCharityViewController.swift */,
+				3474E0991D186E9F00C0C22B /* EditDonerViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -187,6 +203,8 @@
 				3433AC301D0F42CD0060E9F2 /* CharitySignUp.xib */,
 				34F64A711D10C96D001FA309 /* DonatorSignUp.xib */,
 				346185B21D11DFA200375CF0 /* ItemCellXib.xib */,
+				3474E08F1D1492E900C0C22B /* CharityProfile.xib */,
+				3474E0951D14A2DD00C0C22B /* DonerProfile.xib */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -294,7 +312,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3474E0901D1492E900C0C22B /* CharityProfile.xib in Resources */,
 				346185B31D11DFA200375CF0 /* ItemCellXib.xib in Resources */,
+				3474E0961D14A2DD00C0C22B /* DonerProfile.xib in Resources */,
 				34F64A721D10C96D001FA309 /* DonatorSignUp.xib in Resources */,
 				3433AC191D0F26300060E9F2 /* LaunchScreen.storyboard in Resources */,
 				34A77FEB1D135E4C00041811 /* Main.storyboard in Resources */,
@@ -368,9 +388,11 @@
 				3433AC111D0F26300060E9F2 /* ViewController.swift in Sources */,
 				346185B91D120F2A00375CF0 /* SearchViewController.swift in Sources */,
 				3433AC331D0F65140060E9F2 /* CharityView.swift in Sources */,
+				3474E0921D14944800C0C22B /* CharityProfileView.swift in Sources */,
 				3433AC351D0F66080060E9F2 /* SignUpViewController.swift in Sources */,
 				3433AC0F1D0F26300060E9F2 /* AppDelegate.swift in Sources */,
 				346185B51D11EF8A00375CF0 /* Charity.swift in Sources */,
+				3474E0981D186E8B00C0C22B /* EditCharityViewController.swift in Sources */,
 				346185B11D11D11800375CF0 /* ItemTableViewCell.swift in Sources */,
 				346185AF1D11C70100375CF0 /* SignUpProtocol.swift in Sources */,
 				346185BB1D12107800375CF0 /* CharityTableViewCell.swift in Sources */,
@@ -379,7 +401,9 @@
 				3433AC371D0F6AA10060E9F2 /* CharityDetailView.swift in Sources */,
 				34A77FE91D134BB400041811 /* ProfileViewController.swift in Sources */,
 				346185B71D11F25300375CF0 /* Donator.swift in Sources */,
+				3474E0941D14A2CC00C0C22B /* DonerProfileView.swift in Sources */,
 				34A77FE71D13360D00041811 /* ItemCollectionViewCell.swift in Sources */,
+				3474E09A1D186E9F00C0C22B /* EditDonerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

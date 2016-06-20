@@ -175,6 +175,7 @@ class CharityView: UIView, UIImagePickerControllerDelegate, UINavigationControll
         }
         if textField == itemTextField {
             items.append(itemTextField.text!)
+            itemTextField.text = ""
             itemTableView.reloadData()
         }
         

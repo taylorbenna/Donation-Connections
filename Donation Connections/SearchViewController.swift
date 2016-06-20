@@ -9,17 +9,19 @@
 import UIKit
 import Parse
 
-class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
 
     var charities:[Charity] = []
+    var searchedCharities:[Charity] = []
     var currentCharity:Charity?
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var charitySearchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        getCharities()
-        
+        charitySearchBar.showsCancelButton = true
+        charitySearchBar.delegate = self
     
     }
     
@@ -28,6 +30,8 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let defaults = NSUserDefaults.standardUserDefaults()
         if (defaults.objectForKey("user") == nil) {
             performSegueWithIdentifier("showSignUp", sender: self)
+        } else {
+            getCharities()
         }
     }
     
@@ -37,6 +41,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
             if let charities = objects as? [Charity] {
                 self?.charities = charities
+                self?.searchedCharities = charities
                 self?.tableView.reloadData()
             }
         }
@@ -51,13 +56,13 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
    //MARK: Table View
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return charities.count
+        return searchedCharities.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("charityCell", forIndexPath: indexPath) as! CharityTableViewCell
         
-        let charity = charities[indexPath.row]
+        let charity = searchedCharities[indexPath.row]
         
         cell.charityNameLabel.text = charity.charityName
         let items = charity.charityItems.joinWithSeparator(", ")
@@ -73,7 +78,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        currentCharity = charities[indexPath.row]
+        currentCharity = searchedCharities[indexPath.row]
         performSegueWithIdentifier("detailSegue", sender: self)
     }
     
@@ -84,6 +89,35 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         } else if segue.identifier == "showSignUp" {
             
         }
+    }
+    
+    //MARK: Search Bar
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+        searchedCharities = charities
+        tableView.reloadData()
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+        
+        let searchString = searchBar.text
+        
+        searchedCharities = []
+        
+        for char in charities {
+            for charItem in char.charityItems {
+                let item = charItem.lowercaseString
+                if item.containsString((searchString?.lowercaseString)!) {
+                    searchedCharities.append(char)
+                    break
+                }
+            }
+        }
+        
+        
+        tableView.reloadData()
     }
 
 }
